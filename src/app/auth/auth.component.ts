@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { NgForm} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import {AuthService, IAuthResData} from './auth.service';
@@ -14,25 +14,18 @@ import { Router} from '@angular/router';
 
 export class AuthComponent {
 
-//Properties
+
 isLoginMode = true;
 errorMsg: string | null = null;
 authObsv: Observable<IAuthResData>
 
-//constructor
 constructor(private authService: AuthService, private router: Router) {}
 
-//Methods
-onSwitchAuthMode () {
-  this.isLoginMode = !this.isLoginMode;}
+onAuthFormSubmit(form: NgForm) {
 
-onAuthFormSubmit(formObj: NgForm) {
-  console.log('Form Values:', formObj.value);
-  formObj.reset();
+  const { email, password } = form.value;
 
-  const { email, password } = formObj.value;
-
-  if (!formObj.valid || !email || !password) return;
+  if (!form.valid || !email || !password) return;
 
   if (this.isLoginMode) {
 
@@ -41,7 +34,7 @@ onAuthFormSubmit(formObj: NgForm) {
       password,
     });
   } else {
-    // Logic to Sign Up
+
     this.authObsv = this.authService.signUpWithEmailPassword({
       email,
       password,
@@ -61,13 +54,12 @@ onAuthFormSubmit(formObj: NgForm) {
     complete: () => {
       console.log('Complete!');
 
-      // Reset the Form
-      formObj.reset();
+      form.reset();
     },
   });
 }
 
 toggleAuthMode() {
   this.isLoginMode = !this.isLoginMode;
-}
+  }
 }

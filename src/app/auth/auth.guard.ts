@@ -13,7 +13,6 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot) => {
       const isAuth = !!user;
 
       if (isAuth) {
-        // If we are on the auth page, redirect to the homePage page
         if (route.routeConfig?.path === 'auth') {
           return router.createUrlTree(['/homePage']);
         }

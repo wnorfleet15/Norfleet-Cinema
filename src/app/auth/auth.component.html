@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 offset-md-3">
+
+    <form #authForm="ngForm" (ngSubmit)="onAuthFormSubmit(authForm)">
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          required
+          ngModel
+        />
+      </div>
+
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          minlength="6"
+          required
+          ngModel
+        />
+      </div>
+
+
+      <div class="form-group d-flex justify-content-between">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!authForm.valid"
+        >
+          {{ isLoginMode ? "Sign In" : "Sign Up" }}
+        </button>
+
+        <button
+          class="btn btn-sm btn-transparent text-primary"
+          type="button"
+          (click)="toggleAuthMode()"
+        >
+          Switch to {{ isLoginMode ? "Sign Up" : "Sign In" }}
+        </button>
+      </div>
+    </form>
+
+
+    <p class="alert alert-danger mt-3" *ngIf="errorMsg">{{ errorMsg }}</p>
+  </div>
+</div>
+

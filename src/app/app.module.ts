@@ -3,14 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthInterceptorService } from './shared/auth/interceptor.service';
+import { AuthInterceptorService } from './auth/interceptor.service';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { WatchLibraryComponent } from './watch-library/watch-library.component';
 
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HeaderComponent],
+  declarations: [AppComponent, NavbarComponent, HeaderComponent, WatchLibraryComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, SharedModule],
   providers: [
     {
