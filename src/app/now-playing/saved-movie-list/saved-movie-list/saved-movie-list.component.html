@@ -1,0 +1,24 @@
+<!-- Movie List -->
+<div class="row" *ngFor="let movie of mySavedMovies ">
+  <div class="col-md-12 Movie-list-container">
+    <app-Movie [Movie]="Movie"></app-Movie>
+    <button class="movie-remove-btn" (click)="onRemoveMovie(movie.id)">
+      &minus;
+    </button>
+  </div>
+</div>
+
+<hr />
+
+<!-- Add Movie & Sort Movies Buttons -->
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-primary" (click)="navigateToNewMovieRoute()">
+      Add New Movie
+    </button>
+
+    <button (click)="alternateSortingField()" class="btn btn-info">
+      Sort By {{ sortByField === "producer" ? "Title" : "Producer" }}
+    </button>
+  </div>
+</div>

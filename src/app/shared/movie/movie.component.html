@@ -1,0 +1,22 @@
+<a
+  class="mb-3 list-group-item w-100 d-flex justify-content-between align-items-center shadow-sm rounded"
+  style="cursor: pointer"
+  [routerLink]="[movie.id]"
+  routerLinkActive="active"
+>
+  <!-- Left Side - Information -->
+  <div class="d-flex flex-column align-items-start">
+    <h4 class="list-group-item-heading movie-title">{{ movie.title }}</h4>
+    <p class="list-group-item-text mb-0">{{ movie.producer }}</p>
+  </div>
+
+  <!-- Right Side - Image -->
+  <div>
+    <img
+      src="{{ movie.coverImg }}"
+      alt="{{ movie.title }}"
+      class="img-responsive rounded"
+      style="max-height: 75px"
+    />
+  </div>
+  </a>

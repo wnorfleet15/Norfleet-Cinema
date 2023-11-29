@@ -1,0 +1,61 @@
+<!-- Title -->
+<div class="row">
+  <div class="col-md-12">
+    <h2>{{ movieDetails.title }}</h2>
+  </div>
+</div>
+
+<!-- Author -->
+<div class="row">
+  <div class="col-md-12">
+    <h3>{{ movieDetails.author }}</h3>
+  </div>
+</div>
+
+<!-- Cover Image -->
+<div class="row">
+  <div class="col-md-12">
+    <img
+      src="{{ movieDetails.coverImg }}"
+      alt="{{ movieDetails.title }}"
+      class="img-responsive"
+    />
+  </div>
+</div>
+
+<hr />
+
+<!-- Edit movie Button -->
+<div class="row">
+  <div class="col-md-12 dropdown" appDropdown>
+    <!-- Dropdown Button -->
+    <button
+      type="button"
+      class="btn btn-primary dropdown-toggle"
+      id="dropdownMenuButton"
+      data-toggle="dropdown"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      Edit movie
+    </button>
+
+    <!-- Dropdown Menu -->
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a
+        class="dropdown-item"
+        style="cursor: pointer"
+        (click)="navigateToEditmovieRoute()"
+        >Update Movie</a
+      >
+      <button
+        class="dropdown-item"
+        style="cursor: pointer"
+        (click)="onRemoveMovie()"
+      >
+        Delete Movie
+      </button>
+    </div>
+  </div>
+</div>

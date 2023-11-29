@@ -1,0 +1,74 @@
+<form (ngSubmit)="onFormSubmit(formRef)" #formRef="ngForm">
+  <!-- Title -->
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      class="form-control"
+      required
+      #titleRef="ngModel"
+      [ngModel]="isEditingMovie ? movieDetails.title : null"
+    />
+
+    <!-- Error Message -->
+    <span
+      *ngIf="titleRef.touched && !titleRef.valid"
+      class="help-block text-danger"
+      >Please enter a valid title!</span
+    >
+  </div>
+
+  <!-- producer -->
+  <div class="form-group">
+    <label for="producer">Producer</label>
+    <input
+      type="text"
+      id="producer"
+      name="producer"
+      class="form-control"
+      required
+      #producerRef="ngModel"
+      [ngModel]="isEditingMovie ? movieDetails.producer : null"
+    />
+
+    <!-- Error Message -->
+    <span
+      *ngIf="producerRef.touched && !producerRef.valid"
+      class="help-block text-danger"
+      >Please enter a valid producer!</span
+    >
+  </div>
+
+  <!-- Cover Image -->
+  <div class="form-group">
+    <label for="coverImg">Cover Image Path</label>
+    <input
+      type="text"
+      id="coverImg"
+      name="coverImg"
+      class="form-control"
+      required
+      #coverImgRef="ngModel"
+      [ngModel]="isEditingMovie ? movieDetails.coverImg : null"
+    />
+
+    <!-- Error Message -->
+    <span
+      *ngIf="coverImgRef.touched && !coverImgRef.valid"
+      class="help-block text-danger"
+      >Please enter a valid URL Image Path!</span
+    >
+  </div>
+
+  <!-- Cancel Form -->
+  <button (click)="onResetForm()" type="button" class="btn btn-secondary mr-3">
+    Cancel
+  </button>
+
+  <!-- Submit Form -->
+  <button [disabled]="!formRef.valid" class="btn btn-primary" type="submit">
+    {{ isEditingMovie ? "Update" : "Create" }}
+  </button>
+</form>

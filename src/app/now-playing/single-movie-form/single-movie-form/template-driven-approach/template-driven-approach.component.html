@@ -1,0 +1,83 @@
+<!-- * Template Driven Approach * -->
+<form (ngSubmit)="onFormSubmit(formRef)" #formRef="ngForm">
+  <!-- Title -->
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      class="form-control"
+      required
+      #titleRef="ngModel"
+      ngModel
+    />
+
+    <!-- Error Message -->
+    <span
+      *ngIf="titleRef.touched && !titleRef.valid"
+      class="help-block text-danger"
+      >Please enter a valid title!</span
+    >
+  </div>
+
+  <!-- Producer -->
+  <div class="form-group">
+    <label for="producer">producer</label>
+    <input
+      type="text"
+      id="producer"
+      name="producer"
+      class="form-control"
+      required
+      #producerRef="ngModel"
+      ngModel
+    />
+
+    <!-- Error Message -->
+    <span
+      *ngIf="producerRef.touched && !producerRef.valid"
+      class="help-block text-danger"
+      >Please enter a valid producer!</span
+    >
+  </div>
+
+  <!-- Cover Image -->
+  <div class="form-group">
+    <label for="coverImg">Cover Image Path</label>
+    <input
+      type="text"
+      id="coverImg"
+      name="coverImg"
+      class="form-control"
+      required
+      #coverImgRef="ngModel"
+      ngModel
+    />
+
+    <!-- Error Message -->
+    <span
+      *ngIf="coverImgRef.touched && !coverImgRef.valid"
+      class="help-block text-danger"
+      >Please enter a valid URL Image Path!</span
+    >
+  </div>
+
+  <!-- Submit -->
+  <button [disabled]="!formRef.valid" class="btn btn-primary" type="submit">
+    Submit
+  </button>
+</form>
+
+<!-- TODO: RESULTS (Temp: TSK) -->
+<div class="row mt-4" *ngIf="isFormSubmitted">
+  <div class="col-xs-12">
+    <h3>Title: {{ movieDetails.title }}</h3>
+    <h3>Producer: {{ movieDetails.producer }}</h3>
+    <img
+      [src]="movieDetails.coverImg"
+      alt="Cover Image"
+      style="max-width: 200px; max-height: 200px"
+    />
+  </div>
+</div>
