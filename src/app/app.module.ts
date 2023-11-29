@@ -10,11 +10,12 @@ import { WatchLibraryComponent } from './watch-library/watch-library.component';
 import { MovieComponent } from './shared/movie/movie.component';
 import { SavedMovieListComponent } from './now-playing/saved-movie-list/saved-movie-list/saved-movie-list.component';
 import { TemplateDrivenApproachComponent } from './now-playing/single-movie-form/single-movie-form/template-driven-approach/template-driven-approach.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, HeaderComponent, WatchLibraryComponent, MovieComponent, SavedMovieListComponent, TemplateDrivenApproachComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

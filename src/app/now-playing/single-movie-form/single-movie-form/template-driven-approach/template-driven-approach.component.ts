@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Movie } from ''
+import { Movie } from 'src/app/shared/movie/movie.model';
 
 @Component({
   selector: 'app-template-driven-approach',
   templateUrl: './template-driven-approach.component.html',
   styleUrls: ['./template-driven-approach.component.css'],
 })
+
+
 export class TemplateDrivenApproachComponent {
   // * Properties
   isFormSubmitted: boolean = false;
