@@ -3,7 +3,7 @@ import { NowPlayingComponent } from './now-playing/now-playing.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import  {RouterModule, Routes } from "@angular/router";
 import { ChildRouteComponent } from './child-route/child-route.component';
-import { AuthComponent } from './auth/auth.component';
+import { AuthComponent } from './shared/auth/auth.component';
 import { WatchLibraryComponent } from './watch-library/watch-library.component';
 
 const appRoutes: Routes = [

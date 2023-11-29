@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Movie } from './movie/movie.model';
+import { Movie } from '../movie/movie.model';
 
 export type sortMovieFieldT = 'title' | 'producer';
 

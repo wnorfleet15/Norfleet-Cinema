@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Movie } from 'src/app/shared/movie/movie.model';
 import { tap } from 'rxjs';
-import { MovieComponent } from './movie/movie.component';
+import { MovieComponent } from '../movie/movie.component';
 
 
 @Injectable({

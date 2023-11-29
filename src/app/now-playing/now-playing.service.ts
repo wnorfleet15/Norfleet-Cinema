@@ -1,61 +1,62 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { movies} from '../shared/movie/movie.model';
+import { Movie} from '../shared/movie/movie.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NowPlayingService {
   // * Properties
-  private mySavedBooks: Movie[] = [];
+  private mySavedMovies: Movie[] = [];
 
   // * Events
   movieListChanged = new Subject<Movie[]>();
+  mySavedMovie: any;
 
   // * Constructor
   constructor() {}
 
   // * Methods
-  // READ ALL - get all books
+  // READ ALL - get all movies
   getSavedMovies() {
     return this.mySavedMovies.slice();
   }
 
-  // READ ONE - get one book
-  getBookById(id: number) {
-    const foundBook = this.mySavedMovies.find((book) => book.id === id);
+  // READ ONE - get one movie
+  getMovieById(id: number) {
+    const foundMovie = this.mySavedMovies.find((movie) => movie.id === id);
 
-    return foundBook;
+    return foundMovie;
   }
 
-  // CREATE - add a new book
-  addBook(newBook: Book) {
-    this.mySavedMovies.push(newBook); // push() adds one or more elements to the end of an array and returns the new length of the array
-    this.bookListChanged.next(this.mySavedMovies.slice()); // next the updated list of Movies
+  // CREATE - add a new movie
+  addMovie(newMovie: Movie) {
+    this.mySavedMovies.push(newMovie); // push() adds one or more elements to the end of an array and returns the new length of the array
+    this.movieListChanged.next(this.mySavedMovies.slice()); // next the updated list of Movies
   }
 
-  // UPDATE - update an existing book
-  updateBook(bookId: number, updatedBookVals: Partial<Book>) {
-    const bookIndex = this.mySavedMovies.findIndex((book) => book.id === bookId); // Get index of book to update
+  // UPDATE - update an existing movie
+  updatemovie(movieId: number, updatedMovieVals: Partial<Movie>) {
+    const movieIndex = this.mySavedMovies.findIndex((movie) => movie.id === movieId); // Get index of movie to update
 
-    if (bookIndex !== -1) {
-      // We found the book, now we update it with new values
-      this.mySavedMovies[bookIndex] = {
-        ...this.mySavedMovies[bookIndex], // Spread operator to get all the existing values
-        ...updatedBookVals, // Spread operator to get all the updated values
-        id: bookId, // Ensure the book ID stays the same
+    if (movieIndex !== -1) {
+      // We found the movie, now we update it with new values
+      this.mySavedMovies[movieIndex] = {
+        ...this.mySavedMovies[movieIndex], // Spread operator to get all the existing values
+        ...updatedMovieVals, // Spread operator to get all the updated values
+        id: movieId, // Ensure the movie ID stays the same
       };
 
-      this.bookListChanged.next(this.mySavedMovies.slice());
+      this.movieListChanged.next(this.mySavedMovies.slice());
     } else {
-      // Book wasn't found
-      console.error('Book not found!');
+      // Movie wasn't found
+      console.error('Movie not found!');
     }
   }
 
   // UPDATE - update all Movies
-  setMovies(books: Movie[]) {
-    this.mySavedMovies = books;
+  setMovies(movies: Movie[]) {
+    this.mySavedMovies = movies;
     this.movieListChanged.next(this.mySavedMovies.slice());
   }
 
@@ -63,8 +64,8 @@ export class NowPlayingService {
   deleteMovieById(id: number) {
     const newMovie = this.mySavedMovies.filter((movie) => movie.id !== id);
 
-    console.log('newMovies:', newMovies);
-    this.mySavedMovies = newMovies;
+    console.log('newMovies:', newMovie);
+    this.mySavedMovies = newMovie;
     this.movieListChanged.next(this.mySavedMovies.slice());
   }
 }

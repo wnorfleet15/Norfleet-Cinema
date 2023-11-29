@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NowPlayingService } from '../../now-playing.service';
 import {Movie} from 'src/app/shared/movie/movie.model';
-import {sortMovieFieldT} from 'src/app/shared/sortMovies.pipe';
+import {sortMovieFieldT} from 'src/app/shared/pipes/sortMovies.pipe';
 
 
 @Component({
